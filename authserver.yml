@@ -24,8 +24,6 @@ security:
             scope: read,write
 
 spring:
-  main:
-    web-application-type: none
   datasource:
     data: classpath:/sql/data.sql
     driver-class-name: com.mysql.jdbc.Driver
