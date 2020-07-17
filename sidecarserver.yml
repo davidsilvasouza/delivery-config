@@ -1,19 +1,18 @@
 server:
   port: 5678
-  
+
+spring:
+  application:
+    name: sidecar
+
 eureka:
-  instance:
-    hostname: localhost
-    port: 9091
   client:
-    registerWithEureka: true
-    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
-  server:
-    wait-time-in-ms-when-sync-empty: 3000
+      defaultZone: http://localhost:9091/eureka/
+  instance:
+    preferIpAddress: true
 
 sidecar:
-  port: 8080    
-  health-uri: http://localhost:8080/sidecar.json 
-  hostname: localhost
+  port: 8080
+  health-uri: http://localhost:8080/health.json
+  accept-all-ssl-certificates: true
